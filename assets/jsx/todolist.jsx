@@ -28,24 +28,24 @@ var TodoAddWrapper = React.createClass({
 
 var TodoAddForm = React.createClass({
     getInitialState: function() {
-       return {items: [], text: ''};
+       return {items: []};
     },
     onSubmit: function(e) {
         e.preventDefault();
-        var nextItems = this.state.items.concat([this.state.text]);
-        var nextText = '';
-        this.setState({items: nextItems, text: nextText});
+        var text = this.refs.text.getDOMNode().value;
+        var nextItems = this.state.items.concat([text]);
+
+        this.setState({items: nextItems});
         console.log(nextItems);
-    },
-    onChange: function(e) {
-        this.setState({text: e.target.value});
+        
+        this.refs.text.getDOMNode().value = '';
     },
     render: function() {
         return (
             <div>
                 <TodoList items={this.state.items} />
                 <form onSubmit={this.onSubmit}>
-                    <input onChange={this.onChange} value={this.state.text} />
+                    <input ref="text" />
                     <button>
                         Ajouter un item
                     </button>
