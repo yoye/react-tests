@@ -8,8 +8,8 @@
     "grunt": "~0.4.0",
     "grunt-babel": "^5.0.1",
     "grunt-cli": "~0.1.13",
+    "grunt-contrib-copy": "^0.8.1",
     "grunt-contrib-watch": "*",
-    "grunt-copy": "^0.1.0",
     "load-grunt-tasks": "*"
   }
 }

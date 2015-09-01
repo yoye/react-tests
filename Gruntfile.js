@@ -30,7 +30,7 @@ module.exports = function(grunt) {
                     {
                         expand: true,
                         cwd: 'vendor/react/',
-                        src: 'react.min.js',
+                        src: 'react.js',
                         dest: 'web/built/',
                         flatten: true,
                         filter: 'isFile'
