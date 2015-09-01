@@ -32,7 +32,7 @@ var TodoAddForm = React.createClass({
     },
     onSubmit: function(e) {
         e.preventDefault();
-        var text = this.refs.text.getDOMNOde().value;
+        var text = this.refs.text.getDOMNode().value;
         var nextItems = this.state.items.concat([text]);
 
         this.setState({items: nextItems});
