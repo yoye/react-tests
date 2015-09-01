@@ -45,7 +45,7 @@ var TodoAddForm = React.createClass({
             <div>
                 <TodoList items={this.state.items} />
                 <form onSubmit={this.onSubmit}>
-                    <input ref="text" onChange={this.onChange} />
+                    <input ref="text" />
                     <button>
                         Ajouter un item
                     </button>
