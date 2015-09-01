@@ -38,7 +38,7 @@ var TodoAddForm = React.createClass({
         this.setState({items: nextItems});
         console.log(nextItems);
         
-        this.refs.text.getDOMNOde().value = '';
+        this.refs.text.getDOMNode().value = '';
     },
     render: function() {
         return (
