@@ -8,28 +8,12 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        bowerrc: grunt.file.readJSON('.bowerrc'),
-        "dirs": {
-            'vendor': '<%= bowerrc.directory %>'
-        },
-        "bower": {
-            install: {
-                options: {
-                    targetDir: '<%= dirs.vendor %>',
-                    cleanTargetDir: true,
-                    layout: 'byComponent',
-                    install: true,
-                    copy: false,
-                    verbose: true
-                }
-            }
-        },
         "copy": {
             react: {
                 files: [
                     {
                         expand: true,
-                        cwd: 'vendor/react/',
+                        cwd: 'node_modules/react/dist/',
                         src: 'react.js',
                         dest: 'web/built/',
                         flatten: true,

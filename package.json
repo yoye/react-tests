@@ -11,5 +11,8 @@
     "grunt-contrib-copy": "^0.8.1",
     "grunt-contrib-watch": "*",
     "load-grunt-tasks": "*"
+  },
+  "dependencies": {
+    "react": "~0.13.3"
   }
 }
