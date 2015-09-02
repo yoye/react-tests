@@ -7,12 +7,14 @@ var TchatWrapper = React.createClass({
         var newMessages = messages.concat([message]);
         this.setState({data: newMessages});
     },
-
+    getInitialState: function() {
+        return {data: []};
+    },
     render: function() {
         return (
             <div className="tchatWrapper">
                 <h1>Tchat !</h1>
-                <TchatList data={this.props.data} />
+                <TchatList data={this.state.data} />
                 <h2>Ajouter un message</h2>
                 <TchatForm onTchatSubmit={this.handleTchatSubmit} />
             </div>
