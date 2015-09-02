@@ -34,7 +34,8 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    "web/built/todolist.js": "assets/jsx/todolist.jsx"
+                    "web/built/todolist.js": "assets/jsx/todolist.jsx",
+                    "web/built/tchat.js": "assets/jsx/tchat.jsx"
                 }
             }
         }
