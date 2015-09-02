@@ -1,59 +1,24 @@
 /* Wrapper */
 
 var TchatWrapper = React.createClass({
-  render: function() {
-    return (
-      <div className="tchatWrapper">
-        <h1>Tchat !</h1>
-        <TchatList data={this.props.data} />
-      </div>
-    );
-  }
-});
-
-/* Add Message */
-
-var TchatAdd = React.createClass({
     handleTchatSubmit: function(message) {
         console.log(message);
+        var messages = this.state.data;
+        var newMessages = messages.concat([message]);
+        this.setState({data: newMessages});
     },
+
     render: function() {
         return (
-            <div className="tchatAdd">
+            <div className="tchatWrapper">
+                <h1>Tchat !</h1>
+                <TchatList data={this.props.data} />
                 <h2>Ajouter un message</h2>
-                <TchatInput onTchatSubmit={this.handleTchatSubmit} />
+                <TchatForm onTchatSubmit={this.handleTchatSubmit} />
             </div>
         );
     }
 });
-
-var TchatInput = React.createClass({
-    getInitialState: function() {
-        return {
-            pseudo: [],
-            text: []
-        };
-    },
-    handleSubmit: function(e) {
-        e.preventDefault();
-        var input = this.refs.message.getDOMNode();
-        var inputValue = input.value;
-        this.props.onTchatSubmit({
-            pseudo: ["Cyril"],
-            text: [inputValue]
-        });
-        input.value= "";
-    },
-
-    render: function() {
-        return (
-            <form onSubmit={this.handleSubmit}>
-                <input className="tchatInput" ref="message" />
-            </form>
-        );
-    }
-});
-
 
 /* List messages */
 
@@ -87,10 +52,35 @@ var TchatMessage = React.createClass({
   }
 });
 
-React.render(
-  <TchatAdd />,
-  document.getElementById('tchatAdd')
-);
+/* Form */
+
+var TchatForm = React.createClass({
+    getInitialState: function() {
+        return {
+            pseudo: [],
+            text: []
+        };
+    },
+    handleSubmit: function(e) {
+        e.preventDefault();
+        var input = this.refs.message.getDOMNode();
+        var inputValue = input.value;
+        this.props.onTchatSubmit({
+            pseudo: ["Cyril"],
+            text: [inputValue]
+        });
+        input.value= "";
+    },
+
+    render: function() {
+        return (
+            <form onSubmit={this.handleSubmit}>
+                <input className="tchatForm" ref="message" />
+            </form>
+        );
+    }
+});
+
 React.render(
   <TchatWrapper data={listMessages} />,
   document.getElementById('tchat')
